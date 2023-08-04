@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        p{
+            color: #000000;
+            font-size: 15px;
+            
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .white-div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        input, select, label {
+            margin-top: 5px;
+        }
+
+        .select-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+    
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+    
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+    
+        .table tbody + tbody {
+            border-top: 2px solid #dee2e6;
+        }
+    
+        .table .table {
+            background-color: #fff;
+        }
+        .table-container {
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">
+            <div class="title">CERTIFICADO DIGITAL</div>
+            <div class="white-div">
+            <hr>
+            <p>Escolha abaixo o tipo de certificado digital que você irá utilizar:</p>
+            <input type="radio" id="certA1" name="certificado" value="A1">
+            <label for="certA1">Certificado A1 (Arquivo)</label><br>
+            <input type="radio" id="certA3" name="certificado" value="A3">
+            <label for="certA3">Certificado A3 (Cartão/Token)</label>
+        
+    </div>
+        
+            <div class="title">PARÂMETROS DA EMISSÃO</div>
+            <div class="white-div">
+                <hr>
+                <h3>Geral</h3>
+                <div class="select-group">
+                    <div style="flex: 0.5; display: flex; justify-content: space-between;">
+                    <div>
+                        <label for="ambiente">Ambiente de envio</label><br>
+                        <select id="ambiente" name="ambiente">
+                            <option value="prod">1-Produção</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="emissao">Tipo de emissão</label><br>
+                        <select id="emissao" name="emissao">
+                            <option value="normal">1-Normal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="codigo">Código UF</label><br>
+                        <select id="codigo" name="codigo">
+                            <option value="df">DF</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="versao">Versão NF-e/NFC-e</label><br>
+                        <select id="versao" name="versao">
+                            <option value="400">4.00</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <hr>
+                <div class="input-group">
+                    <div style="flex: 0.4; display: flex; justify-content: space-between;">
+                    <div>
+                        <label for="serieProd">Série NF-e(Produção)</label><br>
+                        <input type="text" id="serieProd" name="serieProd">
+                    </div>
+                    <div>
+                        <label for="serieHom">Série NF-e (Homologação)</label><br>
+                        <input type="text" id="serieHom" name="serieHom">
+                    </div>
+                </div>
+                </div><br>
+                <hr>
+                <div class="select-group">
+                    <div>
+                        <label for="decimais">Nº casas decimais do valor unitário dos produtos</label><br>
+                        <select id="decimais" name="decimais">
+                            <option value="prod">1-Produção</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="white-div">
+                <h3>Preenchimento padrão na tela de emissão de Nota Fiscal</h3>
+                <hr>
+                <div class="select-group">                    
+                    <div>
+                        <label for="destinatario">Destinatário</label><br>
+                        <select id="destinatario" name="destinatario">
+                            <option value="pf">Pessoa Física</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="consumidorFinal">Consumidor final</label><br>
+                        <select id="consumidorFinal" name="consumidorFinal">
+                            <option value="sim">1 - Sim</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="select-group">
+                    <div style="flex: 0.6; display: flex; justify-content: space-between;">
+                    <div>
+                        <label for="presencaComprador">Presença de comprador/tomador dos serv. no estabelecimento</label><br>
+                        <select id="presencaComprador" name="presencaComprador">
+                            <option value="opPresencial">1 - Operação presencial</option>
+                        </select>
+                    </div>
+                    <div class="minhaDiv1">
+                        <label for="intermediador">Indicador de intermediador/marketplace</label><br>
+                        <select id="intermediador" name="intermediador">
+                            <option value="selecione">Selecione</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="white-div">
+                <h3>CFOP padrão</h3>
+                <hr>
+                <div class="select-group">
+                    <div>
+                        <label for="cfop">CFOP que será selecionado automaticamente na tela de emissão de Nota Fiscal</label><br>
+                        <select id="cfop" name="cfop">
+                            <option value="vendaMercadoria">5102 - Venda de mercadoria</option>
+                        </select>
+                    </div>
+                </div>
+                <a href="#">Ver CFOP's cadastrados</a>
+            </div>
+            <div class="white-div">
+            <div class="section">
+                <h3>Exclusão do ICMS da base de cálculo do PIS/COFINS</h3>
+                <hr>
+                <input type="checkbox" id="excluirPIS_COFINS">
+                <label for="excluirPIS_COFINS">Excluir valor da base de cálculo do PIS/COFINS:</label>
+                
+            </div>
+            </div>
+            <div class="white-div">
+            <div class="section">
+                <h3>ICMS Desonerado</h3>
+                <hr>
+                <input type="checkbox" id="ICMS_desonerado">
+                <label for="ICMS_desonerado">Não abater o valor do ICMS Desonerado do valor total da NF-e:</label>
+                
+            </div>
+            </div>
+            <div class="white-div">
+            <div class="section">
+                <h3>ICMS DIFAL <i>(Operações interestaduais de Vendas a Consumidor Final)</i></h3>
+                <hr>
+                <label for="calculoDIFAL">Padrão do cálculo de DIFAL</label><br>
+                <select id="calculoDIFAL">
+                    <option selected>1 - Cálculo padrão - Base única [BC x (ALQ intra - ALQ inter)]</option>
+                </select>
+            </div>
+            </div>
+            <div class="white-div">
+                <div class="section">
+                    <h3>Tabela de Impostos</h3>
+                    <div class="table-container">
+                    <table id="impostosTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>CFOP</th>
+                                <th>UF</th>
+                                <th>ICMS</th>
+                                <th>IPI</th>
+                                <th>PIS</th>
+                                <th>COFINS</th>
+                                <th>ISSQN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-primary" onclick="addRow()" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        Adicionar linha
+                    </button>
+                    
+                </div>
+            </div>
+            <div class="white-div">
+                <h3>Padrões de retenções</h3>
+                <hr>
+                <p>Não existem padrões cadastrados.</p>
+                <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    Adicionar padrão
+                </button>
+            </div>
+            <div class="white-div">
+                <h3>Informações adicionais da nota fiscal</h3>
+                <hr>
+                <p>Informações complementares de Interesse do Contribuinte</p>
+                <textarea id="infoContribuinte" name="infoContribuinte" rows="4" cols="50" style="width: 100%;"></textarea>
+                <br>
+                <a href="#">Configurar mensagem padrão: Aproveitamento de crédito ICMS para empresas cotantes pelo Simples Nacional</a>
+                <hr>
+                <p>Informações adicionais de Interesse do Fisco</p>
+                <textarea id="infoFisco" name="infoFisco" rows="4" cols="50" style="width: 100%;"></textarea>
+            </div>
+            <div class="white-div">
+                <h3>Lei da Transparência</h3>
+                <hr>
+                <div>
+                    <input type="checkbox" id="impostosSeparados" name="impostosSeparados">
+                    <label for="impostosSeparados">Calcular impostos separados (federal, estadual e municipal)</label>
+                </div>
+                <hr>
+                <p>
+                    NFeMail já realiza o cálculo automático da Lei da Transparência quando uma nota é emitida 
+                    <a href="#">(saiba mais)</a>. Entretanto, caso queira definir uma aliquota específica para todas as notas, 
+                    informe no campo abaixo.
+                </p>
+                <div>
+                    <input type="number" id="aliquota" name="aliquota" step="0.01" min="0">
+                    <label for="aliquota">% aliquota personalizada</label>
+                </div>
+            </div>
+            <div class="white-div">
+                <h3>Padrões NFS-e</h3>
+                <hr>
+                <div>
+                    <label for="tributacaoServicos">Tributação dos Serviços</label>
+                    <br>
+                    <select id="tributacaoServicos" name="tributacaoServicos">
+                        <option value="1">1 - Exigível</option>
+                        <!-- Adicione mais opções aqui conforme necessário -->
+                    </select>
+                
+                </div><br>
+                <hr>
+                <div>
+                    <label for="regimeEspecial">Regime Especial de Tributação</label>
+                    <br>
+                    <select id="regimeEspecial" name="regimeEspecial">
+                        <option value="6">6 - Microempresa ou Empresa de Pequeno Porte</option>
+                        <!-- Adicione mais opções aqui conforme necessário -->
+                    </select>
+                </div>
+            <div class="white-div"></div>
+            <hr>
+                <h3>Código do Serviço</h3>
+            <hr>
+                <div>
+                    <label for="itemLC">Item L.C. 116/2003</label>
+                    <br>
+                    <select id="itemLC" name="itemLC">
+                        <option value="1401">14.01 - Lubrificação, limpeza, lustração, revisão, carga e recarga, conserto, restauração</option>
+                        <!-- Adicione mais opções aqui conforme necessário -->
+                    </select>
+                </div><br>
+            
+                <div>
+                    <label for="atividadeMunicipio">Atividade do Município</label>
+                    <br>
+                    <select id="atividadeMunicipio" name="atividadeMunicipio">
+                        <option value="1401">1401 - 14.01 - Lubrificação, limpeza, lustração, revisão, carga e recarga, conserto, restauração</option>
+                        <!-- Adicione mais opções aqui conforme necessário -->
+                    </select>
+                </div>
+            </div>
+            <div class="white-div">
+                <h3>DANFe</h3>
+                <hr>
+            
+                <div>
+                    <input type="checkbox" id="mostrarNomeFantasia" name="mostrarNomeFantasia">
+                    <label for="mostrarNomeFantasia">Mostrar <i>Nome Fantasia</i> ao invés da <i>Razão Social</i> nos dados do emitente</label>
+                </div>
+            
+                <div>
+                    <input type="checkbox" id="naoExibirEmails" name="naoExibirEmails">
+                    <label for="naoExibirEmails">Não exibir e-mails do destinatário/transportadora nas informações adicionais do DANFe</label>
+                </div>
+                <hr>
+                <p style="text-align: center">Logomarca do DANFe (apenas arquivo .jpg)</p>
+            
+                <div style="text-align: center">
+                    <label for="logoUpload">Escolher arquivo</label>
+                    <input type="file" id="logoUpload" name="logoUpload" accept=".jpg">
+                </div>
+                
+                <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                Incluir
+                </button>
+                <hr>
+                <div>
+                    <label for="logoAlignment">Alinhamento da Logomarca</label>
+                    <select id="logoAlignment" name="logoAlignment">
+                        <option value="center">Centro</option>
+                    </select>
+                </div>
+            </div>
+                <div class="title">MANIFESTAÇÃO DO DESTINATÁRIO</div>
+                <div class="white-div">   
+                <p>Consulta e download automático de notas fiscais emitidas para o seu CNPJ</p>
+                    
+                <div>
+                    <input type="radio" id="ativado" name="consultaDownload" value="ativado">
+                    <label for="ativado">Ativado</label>
+                    <input type="radio" id="desativado" name="consultaDownload" value="desativado">
+                    <label for="desativado">Desativado</label>
+                </div>
+                <hr>                
+                <div>
+                    
+                    <input type="checkbox" id="manifestarAutomaticamente" name="manifestarAutomaticamente">
+                    <label for="manifestarAutomaticamente">Manifestar automaticamente com "Operação confirmada" após 10 dias da data de autorização do documento</label>
+                </div>
+        </div>
+            
+            <div class="title">ENVIO DAS NOTAS FISCAIS EMITIDAS</div>
+                <div class="white-div">
+                    
+                    
+                    <div>
+                        <input type="checkbox" id="naoEnviarCopia" name="naoEnviarCopia">
+                        <label for="naoEnviarCopia">Não enviar a cópia da nota fiscal emitida para o e-mail do usuário que está emitindo a nota fiscal</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <label for="emails">E-mails que sempre receberão cópias de todas as notas fiscais emitidas:</label>
+                        <br><input type="text" id="emails" name="emails">
+                        <p class="small">Separe os e-mails com vírgula. Ex.: exemplo1@e-mail.com , exemplo2@gmail.com</p>
+                    </div>
+                </div>
+                <div class="white-div">
+                    <h3>E-mail personalizado da NF-e enviado ao cliente</h3>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="mostrarLogo" name="mostrarLogo">
+                        <label for="mostrarLogo">Mostrar <i>Logomarca</i></label>
+                    </div>
+                    <hr>
+                    <p>Mensagem adicional</p>
+                    <textarea style="width: 100%; height: 100px;"></textarea>
+                    <br>
+                    <br>
+                    <a href="#">enviar e-mail de teste</a>
+                </div>
+
+                <div class="white-div">
+                    <h3> Arquivos de anexos ao e-mail da NF-e</h3>
+                    <hr>
+                    <p>Não existem arquivos de anexo cadastrados.</p>
+                    <button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        Adicionar
+                    </button>
+                </div>
+        
+            <div class="title">OUTRAS CONFIGURAÇÕES</div>
+            <div class="white-div">
+                <h3>Defina suas preferências pessoais abaixo</h3>
+                <hr>
+                <div style="display: flex; align-items: center;">
+                    <p style="flex: 1;">Permitir cliente realizar o download do XML</p>
+                    
+                    <div style="flex: 0.5; display: flex; justify-content: space-around;">
+                        <div>
+                            <input type="radio" id="allowDownloadYes" name="allowDownload">
+                            <label for="allowDownloadYes">Sim</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="allowDownloadNo" name="allowDownload">
+                            <label for="allowDownloadNo">Não</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="display: flex; align-items: center;">
+                    <p style="flex: 1;">Receber resumo diário das notas</p>
+                    
+                    <div style="flex: 0.5; display: flex; justify-content: space-around;">
+                        <div>
+                            <input type="radio" id="dailySummaryYes" name="dailySummary">
+                            <label for="dailySummaryYes">Sim</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="dailySummaryNo" name="dailySummary">
+                            <label for="dailySummaryNo">Não</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="display: flex; align-items: center;">
+                    <p style="flex: 1;">Receber resumo semanal das notas</p>
+                    
+                    <div style="flex: 0.5; display: flex; justify-content: space-around;">
+                        <div>
+                            <input type="radio" id="weeklySummaryYes" name="weeklySummary">
+                            <label for="weeklySummaryYes">Sim</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="weeklySummaryNo" name="weeklySummary">
+                            <label for="weeklySummaryNo">Não</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="display: flex; align-items: center;">
+                    <p style="flex: 1;">Receber resumo quinzenal das notas</p>
+                    
+                    <div style="flex: 0.5; display: flex; justify-content: space-around;">
+                        <div>
+                            <input type="radio" id="biweeklySummaryYes" name="biweeklySummary">
+                            <label for="biweeklySummaryYes">Sim</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="biweeklySummaryNo" name="biweeklySummary">
+                            <label for="biweeklySummaryNo">Não</label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="display: flex; align-items: center;">
+                    <p style="flex: 1;">Receber resumo mensal das notas</p>
+                    
+                    <div style="flex: 0.5; display: flex; justify-content: space-around;">
+                        <div>
+                            <input type="radio" id="monthlySummaryYes" name="monthlySummary">
+                            <label for="monthlySummaryYes">Sim</label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="monthlySummaryNo" name="monthlySummary">
+                            <label for="monthlySummaryNo">Não</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="title">CONTROLE DE ESTOQUE</div>
+            <div class="white-div">     
+                <hr>           
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div>
+                        <p>Informe a característica do produto que o sistema utilizará para realizar o controle do estoque.</p>
+                        <select name="productFeature" id="productFeature">
+                            <option value="">Selecione</option>
+                            <!-- Adicione mais opções aqui -->
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <p>Informe a sugestão inicial para o sistema relacionar o produto.</p>
+                        <select name="productSuggestion" id="productSuggestion">
+                            <option value="">Selecione</option>
+                            <!-- Adicione mais opções aqui -->
+                        </select>
+                    </div>
+                </div>
+                <p class="small">*Controle de estoque disónível apenas a partid do plano intermediário.</p>
+            </div>
+            <div style="display: flex; justify-content: center; padding: 20px;">
+                <button type="button" class="btn btn-success">Salvar</button>
+            </div>
+            
+                
+            
+            
+
+                
+            
+            
+            
+            
+            
+            
+            
+            <script>
+                function addRow() {
+                    var table = document.getElementById("impostosTable");
+                    var row = table.insertRow(-1);
+                    for (var i = 0; i < 7; i++) {
+                        var cell = row.insertCell(i);
+                        var input = document.createElement("input");
+                        input.type = "text";
+                        cell.appendChild(input);
+                    }
+                    var deleteCell = row.insertCell(7);
+                    var deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Remover";
+                    deleteButton.onclick = function() {
+                        deleteRow(row.rowIndex);
+                    };
+                    deleteCell.appendChild(deleteButton);
+            
+                    // Adicionar botão de editar
+                    var editCell = row.insertCell(8);
+                    var editButton = document.createElement("button");
+                    editButton.textContent = "Editar";
+                    editButton.onclick = function() {
+                        editRow(row.rowIndex);
+                    };
+                    editCell.appendChild(editButton);
+                }
+            
+                function deleteRow(index) {
+                    document.getElementById("impostosTable").deleteRow(index);
+                }
+            
+                // Função para editar a linha
+                function editRow(index) {
+                    // Aqui você pode adicionar o código para a edição da linha.
+                    // O index da linha a ser editada está disponível para uso.
+                }
+            </script>
+            
+            
+            
+        </div>
+    </div>
+</body>
+</html>

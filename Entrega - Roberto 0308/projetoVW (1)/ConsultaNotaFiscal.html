@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Nota Fiscal</title>
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .white-div {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            margin: 10px;
+        }
+    
+        label {
+            margin: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .big-div-button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .big-div-button button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .big-div-button button:hover {
+            background-color: #0056b3;
+        }
+
+        .three-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .three-columns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">
+        <!-- Primeira Div -->
+        <div class="title">PERÍODO</div>
+        <div class="white-div">
+            
+            <hr>
+            <div>
+                <input type="radio" id="emissao" name="date" value="emissao">
+                <label for="emissao">Data de Emissão</label><br>
+                <input type="radio" id="recepcao" name="date" value="recepcao">
+                <label for="recepcao">Data de Recepção</label><br>
+            </div>
+            <hr>
+            <div>
+                <label for="start-date">Data inicial:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">Data final:</label>
+                <input type="date" id="end-date">
+            </div>
+            <hr>
+            <div class="input-group-append">
+                <button class="btn btn-transparent" type="button">Mês Atual</button>
+                <button class="btn btn-transparent" type="button">Mês Anterior</button>
+                <button class="btn btn-transparent" type="button">Mês Retrasado</button>
+            </div>
+        </div>
+        
+        <!-- Segunda Div -->
+        <div class="title">TIPO DE NOTA FISCAL</div>
+        <div class="white-div">
+            
+            <HR>
+                <div>
+                <input type="radio" id="mostrarAmbos" name="nfType" value="ambos">
+                <label for="mostrarAmbos">Mostrar Ambos</label><br>
+                <input type="radio" id="somenteEntrada" name="nfType" value="entrada">
+                <label for="somenteEntrada">Somente Entrada</label><br>
+                <input type="radio" id="somenteSaida" name="nfType" value="saida">
+                <label for="somenteSaida">Somente Saída</label><br>
+            </div>
+            <hr>
+            <div>
+                <label for="emitentes">Emitentes</label>
+                <select class="form-control" id="emitentes">
+                    <option>Todos</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+                <label for="destinatarios">Destinatários</label>
+                <select class="form-control" id="destinatarios">
+                    <option>Todos</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <hr>
+            <div>
+                <input type="checkbox" id="emitidasEmpresa">
+                <label for="emitidasEmpresa">Mostrar somente notas emitidas pela empresa</label><br>
+                <input type="checkbox" id="importacao">
+                <label for="importacao">Mostrar somente notas de importação</label>
+            </div>
+            <div>
+                <input type="checkbox" id="naoEmitidasEmpresa">
+                <label for="naoEmitidasEmpresa">Não mostrar notas emitidas pela empresa</label><br>
+                <input type="checkbox" id="emitidasExterior">
+                <label for="emitidasExterior">Mostrar somente notas emitidas para exterior</label>
+            </div>
+            <hr>
+            <div>
+                
+                <label for="usuarios">Usuário que emitiu a nota fiscal:</label>
+                <select class="form-control" id="usuarios">
+                    <option>Todos</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+        </div>
+        <!-- Terceira Div -->
+        <div class="title">MODELO DE NOTA FISCAL</div>
+        <div class="white-div">
+            
+            <hr>
+            <div>
+                <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                <label for="mostrarTodos">Mostrar Todos</label><br>
+                <input type="radio" id="somenteNFe" name="nfModel" value="nfe">
+                <label for="somenteNFe">Somente NF-e</label><br>
+                <input type="radio" id="somenteNFCe" name="nfModel" value="nfce">
+                <label for="somenteNFCe">Somente NFC-e</label><br>
+                <input type="radio" id="somenteNFSe" name="nfModel" value="nfse">
+                <label for="somenteNFSe">Somente NFS-e</label>
+            </div>
+        </div>
+
+        <!-- Quarta Div -->
+        <div class="title">DETALHES DA NOTA FISCAL</div>
+        <div class="white-div">
+            
+            <hr>
+            
+                <label for="numInicial">Número inicial:</label>
+                <input type="number" id="numInicial" size="10">
+                
+            
+                <label for="numFinal">Número final:</label>
+                <input type="number" id="numFinal" size="10">
+                
+            
+                <label for="serie">Série:</label>
+                <input type="number" id="serie" size="10">
+                <br>
+            
+                <label for="chaveAcesso">Chave de acesso:</label>
+                <input type="text" id="chaveAcesso" size="30">
+                
+            
+                <label for="cfop">CFOP:</label>
+                <input type="number" id="cfop" size="10">
+
+                <br>
+            <br>
+            <hr>
+            <div>
+                <input type="checkbox" id="autorizadas">
+                <label for="autorizadas">Mostrar somente notas autorizadas</label>
+                <input type="checkbox" id="simplesNacional">
+                <label for="simplesNacional">Mostrar somente emitentes do simples nacional</label><br>
+                <input type="checkbox" id="canceladas">
+                <label for="canceladas">Mostrar somente notas canceladas</label>
+                <input type="checkbox" id="denegadas">
+                <label for="denegadas">Mostrar somente notas denegadas</label>
+            </div>
+        </div>
+        <!-- Quinta Div -->
+        <div class="title">OPÇÕES DE EXIBIÇÃO</div>
+        <div class="white-div">
+            
+            <hr>
+                <div>
+                    <input type="radio" id="exibirTela" name="exibicao">
+                    <label for="exibirTela">Exibir na tela</label>
+                </div>
+                <hr>
+                <div>
+                    <input type="radio" id="gerarDANFe" name="exibicao">
+                    <label for="gerarDANFe">Gerar DANFe unificando (somente NF-e)</label>
+                    <input type="radio" id="gerarTXT" name="exibicao">
+                    <label for="gerarTXT">Gerar TXT SEFAZ</label>
+                    <input type="radio" id="gerarZIP" name="exibicao">
+                    <label for="gerarZIP">Gerar arquivo ZIP (apenas XML)</label>
+                    <input type="radio" id="gerarZIPDANFe" name="exibicao">
+                    <label for="gerarZIPDANFe">Gerar arquivo ZIP (XML e DANFe)</label>
+                </div>
+                <hr>
+                <div>
+                    <input type="radio" id="enviarEmailXML" name="exibicao">
+                    <label for="enviarEmailXML">Enviar por E-mail (apenas XML)</label>
+                    <input type="radio" id="enviarEmailXMLDANFe" name="exibicao">
+                    <label for="enviarEmailXMLDANFe">Enviar por E-mail (XML e DANFe)</label><br>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="exemplo@dominio.com">
+                   
+                </div>
+        </div>
+
+        <!-- Botão de Buscar -->
+        <div style="display: flex; justify-content: center; padding: 20px;">
+            <button type="button" class="btn btn-success">Buscar</button>
+        </div>
+
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

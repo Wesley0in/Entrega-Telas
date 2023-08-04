@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Incluir Produto</title>
+   
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .white-div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+        .formu{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">  
+            <div class="title">Editar Produto</div>
+
+            <form action="/incluirProduto" method="post">
+                <label for="descricao">Descrição do produto:</label>
+                <input type="text" id="descricao" name="descricao">
+
+                <label for="codigo">Código do produto:</label>
+                <input type="text" id="codigo" name="codigo">
+
+                <label for="ncm">NCM:</label>
+                <input type="text" id="ncm" name="ncm">
+
+                <label for="gtin">GTIN:</label>
+                <input type="text" id="gtin" name="gtin">
+
+                <label for="cest">CEST:</label>
+                <input type="text" id="cest" name="cest">
+
+                <label for="exibir">Exibir:</label>
+                <select id="exibir" name="exibir">
+                    <option value="ativas">Ativas</option>
+                    <option value="desativas">Desativas</option>
+                    <option value="emAndamento">Em andamento</option>
+                </select>
+
+                <a href="Produtos.html" class="btn">Voltar</a>
+                <input class="btn" type="submit" value="Editar Produto">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Gestão de Produtos</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-add {
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-add:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .white-div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+        }
+        .formu{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">    
+            <div class="title">Gestão de Produtos</div>
+
+            <!-- Pesquisa -->
+            <br>
+            <hr>
+            <br>
+            <div class="formu">
+            <form action="/produto/BuscaProd">
+                <input type="text" name="nome" class="form-control">
+                <button class="btn" type="submit">Pesquisar</button>                
+            </form>
+            </div>
+            
+            <a class="btn btn-add" href="/Incluir.html">Add Produtos</a>
+
+            <!-- Botão para ir para a página de cadastro -->
+
+            <!-- Listagem de produtos -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição/Código</th>
+                        <th>NCM</th>
+                        <th>CEST</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Descrição 1 / Código 1</td>
+                        <td>NCM 1</td>
+                        <td>CEst 1</td>
+                        <td>
+                            <a class="btn" href="Editar.html">Editar</a>
+                            <a class="btn" href="/excluir/1">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descrição 2 / Código 2</td>
+                        <td>NCM 2</td>
+                        <td>CEst 2</td>
+                        <td>
+                            <a class="btn" href="Editar.html">Editar</a>
+                            <a class="btn" href="/excluir/2">Excluir</a>
+                        </td>
+                    </tr>
+                    <!-- Adicione aqui mais linhas da tabela -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

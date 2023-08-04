@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt" style="overflow: hidden;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Site</title>
+    <!-- Bootstrap CSS  -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- You need to add JQuery before bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+    
+    <style>
+        body, html {
+            overflow: hidden;
+            height: 100%; /* Defina a altura para 100% */
+        }
+        .nav-link {
+            color: #4696ff !important; 
+        }
+
+        .nav-link:hover {
+            color: #4696ff !important;
+        }
+
+        .nav-link.active {
+            color: white !important;
+            background-color: #4696ff !important;
+        }
+
+        #content-frame {
+            overflow: auto;
+            height: calc(100% - 50px); /* Subtraia a altura da sua barra de navegação */
+            width: 100%;
+            position: absolute; /* Adicione a posição absoluta */
+        }
+    </style>
+    
+</head>
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" id="menu" href="menu.html" target="content-frame">Menu</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="cadastrosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cadastros
+            </a>
+            <div class="dropdown-menu" aria-labelledby="cadastrosDropdown">
+                <a class="dropdown-item" id="emitente" href="Emitente.html" target="content-frame">Emitente</a>
+                <a class="dropdown-item" id="produtos" href="Produtos.html" target="content-frame">Produtos</a>
+            </div>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" id="compras" href="Compras.html" target="content-frame">Compras</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Vendas" href="Vendas.html" target="content-frame">Vendas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="OrdemServic" href="OrdemServic.html" target="content-frame">Ordem de Serviço</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Financeiro" href="Financeiro.html" target="content-frame">Financeiro</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="consulta" href="ConsultaNotaFiscal.html" target="content-frame">Nota Fiscal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Relatorio" href="Relatório.html" target="content-frame">Relatório
+
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="Contabilidade" href="Contabilidade.html" target="content-frame">Contabilidade</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="config" href="Configuracoes.html" target="content-frame">Configurações</a>
+        </li>
+    </ul>
+
+    <iframe name="content-frame" id="content-frame" src="menu.html"></iframe>
+
+ 
+
+    <!-- Bootstrap JS -->
+  
+
+    <script>
+        var links = ['menu', 'emitente', 'produtos', 'consulta', 'compras','Relatorio', 'config', 'Contabilidade','OrdemServic','Vendas','Financeiro'];
+        links.forEach(function(link) {
+            document.getElementById(link).addEventListener('click', function(e) {
+                e.preventDefault();
+    
+                // Remover a classe 'active' do link atualmente ativo
+                document.getElementsByClassName('active')[0].classList.remove('active');
+    
+                // Adicionar a classe 'active' ao link clicado
+                this.classList.add('active');
+    
+                // Mostrar o iFrame e carregar a página correspondente
+                document.getElementById('content-frame').style.display = 'block';
+                document.getElementById('content-frame').src = this.href;
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Adicionar Produto</title>
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .container h2 {
+            margin-top: 0;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .white-div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div"> 
+            <div class="title">Adicionar Produto</div>
+
+            <div class="container">
+                <h2>Informações do produto</h2>
+                <form action="/adicionarProduto" method="post">
+                    <label for="descricao">Descrição do produto:</label>
+                    <input type="text" id="descricao" name="descricao">
+
+                    <label for="codigo">Código do produto:</label>
+                    <input type="text" id="codigo" name="codigo">
+
+                    <label for="ncm">NCM:</label>
+                    <input type="text" id="ncm" name="ncm">
+
+                    <label for="exTipi">EX TIPI:</label>
+                    <input type="text" id="exTipi" name="exTipi">
+
+                    <label for="cest">CEST:</label>
+                    <input type="text" id="cest" name="cest">
+
+                    <label for="codigoBeneficio">Código de beneficio Fiscau na UF:</label>
+                    <input type="text" id="codigoBeneficio" name="codigoBeneficio">
+
+                    <label for="unidadeComercial">Unidade comercial:</label>
+                    <input type="text" id="unidadeComercial" name="unidadeComercial">
+
+                    <label for="gtin">GTIN(EAN):</label>
+                    <input type="text" id="gtin" name="gtin">
+
+                    <label for="valorUnitarioComercial">Nº de decimais do valor unitario comercial:</label>
+                    <select id="valorUnitarioComercial" name="valorUnitarioComercial">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="container">
+                <h2>Definir tributação diferente</h2>
+                <form action="/definirTributacao" method="post">
+                    <label for="unidadeTributavel">Unidade tributável:</label>
+                    <input type="text" id="unidadeTributavel" name="unidadeTributavel">
+
+                    <label for="gtinTributacao">GTIN(EAN):</label>
+                    <input type="text" id="gtinTributacao" name="gtinTributacao">
+
+                    <label for="valorUnitarioTributacao">Nº de decimais do valor unitario tributável:</label>
+                    <select id="valorUnitarioTributacao" name="valorUnitarioTributacao">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </form>
+            </div>
+
+            <div class="container">
+                <h2>Informações adicionais do produto</h2>
+                <form action="/informacoesAdicionais" method="post">
+                    <label for="informacoesAdicionais">Informações Adicionais:</label>
+                    <textarea id="informacoesAdicionais" name="informacoesAdicionais" rows="4" cols="50" style="width: 100%;"></textarea>
+                </form>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="Produtos.html" class="btn">Voltar</a>
+                <button type="submit" class="btn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

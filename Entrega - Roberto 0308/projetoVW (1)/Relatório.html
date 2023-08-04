@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Relatório</title>
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .white-div {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .big-div-button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .big-div-button button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            margin: 2px;
+        }
+    
+        label {
+            margin: 10px;
+        }
+
+        input[type="radio"] {
+            margin: 2px;
+        }
+    
+        label {
+            margin: 10px;
+        }
+
+        .big-div-button button:hover {
+            background-color: #0056b3;
+        }
+
+        .three-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+        .check{
+            padding-left: 2%;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .three-columns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">
+                <div class="white-div">
+                    <div class="title">TIPOS DE RELATÓRIO</div>
+                    <hr>
+                    <br>
+                    <div class="radio-group">
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Relação de notas fiscais</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Total por clientes</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Impostos</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Impostos x NF-e</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Resumo CFOP</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Resumo CFOP x NF-e</label>
+                            <br>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Retenção de tributos</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Boletos</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Emitidos</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Crédito</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Débito</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Pix</label>
+                            <input type="radio" id="mostrarTodos" name="nfModel" value="todos">
+                            <label for="mostrarTodos">Dinheiro</label>
+                    </div>
+                </div>
+                
+
+                <!-- Tipo de Nota Fiscal -->
+                <div class="white-div">
+                    <div class="title">TIPO DE NOTA FISCAL</div>
+                    <hr>
+                    <div class="radio-group">
+                        <input type="radio" id="mostrarambos" name="nfModel" value="todos">
+                        <label for="mostrarTodos">Mostrar ambos</label><br>
+                        <input type="radio" id="somenteendtrada" name="nfModel" value="nfe">
+                        <label for="somenteNFe">Somente entrada</label><br>
+                        <input type="radio" id="somentesaida" name="nfModel" value="nfce">
+                        <label for="somenteNFCe">Somente saída </label><br>
+                    </div>
+                    <hr>
+
+                <!-- Destinatários -->
+                    <label for="destinatarios">Destinatários</label>
+                    <select class="form-control" id="destinatarios">
+                        <option>Todos</option>
+                        <option>Opção 1</option>
+                        <option>Opção 2</option>
+                    </select>
+
+                <!-- Usuário que emitiu a Nota Fiscal -->
+                    <label for="usuarioNotaFiscal">Usuário que emitiu a Nota Fiscal</label>
+                    <select class="form-control" id="usuarioNotaFiscal">
+                        <option>Todos</option>
+                        <option>Opção 1</option>
+                        <option>Opção 2</option>
+                    </select>
+                    <hr>
+                    <div class="check">
+                        <input type="checkbox" id="mostrarUsuarios">
+                        <label for="mostrarUsuarios">Mostrar usuários no relatório</label>
+                    </div>
+                    
+                </div>
+
+                <!-- Período -->
+                <div class="white-div">
+                    <div class="title">PERÍODO</div>
+                    <hr>
+                    <div class="radio-group">
+                        <input type="radio" id="Datae" name="nfModel" value="todos">
+                        <label for="mostrarTodos">Data de emissão</label><br>
+                        <input type="radio" id="Datar" name="nfModel" value="nfe">
+                        <label for="somenteNFe">Data de recepção</label><br>
+                        <input type="radio" id="Datad" name="nfModel" value="nfce">
+                        <label for="somenteNFCe">Data de vencimento</label><br>
+                    </div>
+                    <hr>
+                    
+                    <div class="input-group">
+                        <label for="start-date">Data inicial : </label>
+                        <input type="date" id="start-date">
+                        <label for="end-date">Data final :</label>
+                        <input type="date" id="end-date">
+                    </div>
+                    <hr>
+                        <div class="input-group-append">
+                            <button class="btn btn-transparent" type="button">Mês Atual</button>
+                            <button class="btn btn-transparent" type="button">Mês Anterior</button>
+                            <button class="btn btn-transparent" type="button">Mês Retrasado</button>
+                        </div>
+                </div>
+
+                <!-- Agrupamento -->
+                <div class="white-div">
+                    <label for="agrupamento">Agrupamento</label>
+                    <select class="form-control" id="agrupamento">
+                        <option>Por dia</option>
+                        <option>Por mês</option>
+                        <option>Por trimestre</option>
+                    </select>
+                </div>
+
+                <!-- Botão -->
+                <button type="button" class="btn btn-success">Exibir</button>
+            </div>
+            
+    </div>
+    <!-- Bootstrap JS -->
+   
+</body>
+</html>

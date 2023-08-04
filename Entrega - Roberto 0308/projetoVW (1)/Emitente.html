@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        p{
+            color: #000000;
+            font-size: 15px;
+            
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: #a8c7f0;
+            border-radius: 10px;
+            
+        }
+        .big-div {
+            background-color: #4696ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .blue-div {
+            background-color: #daecf1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .white-div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        input, select, label {
+            margin-top: 5px;
+        }
+
+        .select-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+    
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+    
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+    
+        .table tbody + tbody {
+            border-top: 2px solid #dee2e6;
+        }
+    
+        .table .table {
+            background-color: #fff;
+        }
+        .table-container {
+            height: 200px;
+            overflow-y: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="big-div">
+        <div class="blue-div">
+            <div class="title">PARÂMETRO DO EMITENTE</div>
+            <form class="row g-3">
+                <div class="col-md-3">
+                  <label for="cnpjInput" class="form-label">CNPJ</label>
+                  <input type="text" class="form-control" id="cnpjInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="razaoSocialInput" class="form-label">Razão Social</label>
+                  <input type="text" class="form-control" id="razaoSocialInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="nomeFantasiaInput" class="form-label">Nome Fantasia</label>
+                  <input type="text" class="form-control" id="nomeFantasiaInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="cfdfInput" class="form-label">CF/DF</label>
+                  <input type="text" class="form-control" id="cfdfInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="cnaeFiscalInput" class="form-label">CNAE Fiscal</label>
+                  <input type="text" class="form-control" id="cnaeFiscalInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="regimeTributarioInput" class="form-label">Código do Regime Tributário</label>
+                  <select class="form-select" id="regimeTributarioInput" required>
+                    <option selected disabled value="">Selecione...</option>
+                    <!-- Insira as opções de código do regime tributário aqui -->
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="cepInput" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="cepInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="logradouroInput" class="form-label">Logradouro</label>
+                  <input type="text" class="form-control" id="logradouroInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="numeroInput" class="form-label">Número</label>
+                  <input type="text" class="form-control" id="numeroInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="complementoInput" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="complementoInput" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="bairroInput" class="form-label">Bairro</label>
+                  <input type="text" class="form-control" id="bairroInput" required>
+                </div>
+                <br>
+                <div class="col-md-3">
+                  <label for="estadoInput" class="form-label">Estado</label>
+                  <select class="form-select" id="estadoInput" required>
+                    <option selected disabled value="">Selecione...</option>
+                    <!-- Insira as opções dos estados aqui -->
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="cidadeInput" class="form-label">Cidade</label>
+                  <select class="form-select" id="cidadeInput" required>
+                    <option selected disabled value="">Selecione...</option>
+                    <!-- Insira as opções das cidades aqui -->
+                  </select>
+                </div>
+              </form>              
+              <br>
+              
+              
+        
+            <div class="title">INFORMAÇÕES OPCIONAIS</div>
+            <div class="white-div">
+                <form class="row g-3">
+                    <div class="col-md-4">
+                      <label for="validationDefault01" class="form-label">Telefone</label>
+                      <input type="text" class="form-control" id="validationDefault01" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationDefault04" class="form-label">Contador</label><br>
+                        <select class="form-select" id="validationDefault04" required>
+                          <option selected disabled value="">Escolher</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                    <div class="col-md-4">
+                      <label for="validationDefault02" class="form-label">CNPJ do contador</label>
+                      <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationDefaultUsername" class="form-label">CPF do contador</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                      </div>
+                </div>
+             
+                <div class="col-md-4">
+                    <label for="inscricaoEstadualST" class="form-label">Inscrição Estadual ST</label>
+                    <button type="button" class="btn btn-primary">Adicionar</button>
+                </div>
+               
+                </form>
+              </div>
+                <!-- NFC-E -->
+<div class="title">NFC-E</div>
+
+<!-- Ambiente de Produção -->
+<div class="white-div">
+    <h4>Ambiente de Produção</h4>
+    <hr>
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="idCSCProd" class="form-label">ID do CSC</label>
+            <input type="text" class="form-control" id="idCSCProd" required>
+        </div>
+        <div class="col-md-4">
+            <label for="cscTokenProd" class="form-label">CSC (TOKEN)</label>
+            <input type="text" class="form-control" id="cscTokenProd" required>
+        </div>
+    </form>
+</div>
+
+<!-- Ambiente de Homologação (Testes) -->
+<div class="white-div">
+    <h4>Ambiente de Homologação (Testes)</h4>
+    <hr>
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="idCSCTest" class="form-label">ID do CSC</label>
+            <input type="text" class="form-control" id="idCSCTest" required>
+        </div>
+        <div class="col-md-4">
+            <label for="cscTokenTest" class="form-label">CSC (TOKEN)</label>
+            <input type="text" class="form-control" id="cscTokenTest" required>
+        </div>
+    </form>
+</div>
+    
+            <a href="menu.html" class="btn">Voltar</a>
+            <input class="btn" type="submit" value="Salvar">
+            
+                
+            
+            
+
+                
+            
+            
+            
+            
+            
+            
+            
+            <script>
+                function addRow() {
+                    var table = document.getElementById("impostosTable");
+                    var row = table.insertRow(-1);
+                    for (var i = 0; i < 7; i++) {
+                        var cell = row.insertCell(i);
+                        var input = document.createElement("input");
+                        input.type = "text";
+                        cell.appendChild(input);
+                    }
+                    var deleteCell = row.insertCell(7);
+                    var deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Remover";
+                    deleteButton.onclick = function() {
+                        deleteRow(row.rowIndex);
+                    };
+                    deleteCell.appendChild(deleteButton);
+                }
+            
+                function deleteRow(index) {
+                    document.getElementById("impostosTable").deleteRow(index);
+                }
+            </script>
+            
+     
+</body>
+</html>
